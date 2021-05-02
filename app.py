@@ -22,7 +22,7 @@ standard_to = StandardScaler()
 @app.route('/extract', methods = ['POST'])
 def extract():
     if request.method == 'POST':
-        url = 'mysql+mysqlconnector://{user}:{password}@{server}/{database}'.format(user = 'root', password = 'Titun@1994', server = 'localhost', database = 'invoice_details')
+        url = 'mysql+mysqlconnector://{user}:{password}@{server}/{database}'.format(user = 'be08255e1d390e', password = '9a558bf1', server = 'us-cdbr-east-03.cleardb.com', database = 'heroku_910957a521e001f')
         engine = create_engine(url, echo = True)
         base = declarative_base()
         path = os.getcwd() + '/Invoices'
@@ -49,9 +49,9 @@ def extract():
             amount.append(total)
         data = {'InvoiceNo' : invoice_no, 'Date' : date, 'CustomerId' : customer_id, 'Name' : name, 'Company' : company, 'Address' : address, 'Contact' : contact, 'Email' : email, 'Amount' : amount}
         data = pd.DataFrame(data)
-        df = pd.read_sql_table('invoice_details', engine)
+        df = pd.read_sql_table('data_digitization', engine)
         df = pd.concat([df, data], axis = 0)
-        df.to_sql(con = engine, name = 'invoice_details', if_exists = 'replace', index = None)        
+        df.to_sql(con = engine, name = 'data_digitization', if_exists = 'replace', index = None)        
         return render_template('home.html')
     else:
         return render_template('home.html')
