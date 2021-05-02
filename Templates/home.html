@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SATTVA - POC Version</title>
+</head>
+<body>
+	<h1 style = "text-align: center">SATTVA - POC Version</h1><br><br>
+	<div><form action = "{{url_for('extract')}}" method = "post">
+		<div style = "text-align: center"><button id = "submit" type = "submit">Extract</button></div>        
+    </form></div>
+	<style>
+        body {
+        	background-color: lightslategray;
+            text-align: center;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: -15px;
+            padding-bottom: 15px;
+            font-size: 20px;
+            color: black;
+        }
+        div {
+        	padding-top: -15px;
+            padding-bottom: 15px;
+        }        
+        #submit {
+            font-size: 25px;
+            color: black;
+            padding: 15px;
+        }
+    </style>
+</body>
+</html>
