@@ -33,15 +33,15 @@ def extract():
             file = file.getPage(0)
             file = file.extractText()
             file = file.split('/n')
-            invoice_no.append(file[88])
+            invoice_no.append(file[-8])
             date.append(file[6])
-            customer_id.append(file[93])
+            customer_id.append(file[-3])
             name.append(file[9])
             company.append(file[10])
             address.append(', '.join(file[11 : 13]))
             contact.append(file[13])
             email.append(file[14])
-            total = file[83]
+            total = file[-13]
             total = total.split(' ')
             total = ''.join(total)
             total = total.split(',')
